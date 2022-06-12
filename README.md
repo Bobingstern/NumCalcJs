@@ -9,11 +9,11 @@ Head over to the [NumCalcJS](https://github.com/Bobingstern/NumCalcJs/tree/main/
 ### Maximum and Minimum
 `NumCalc.maximum(f,a,b,error)`
 
-Computes the maximum of a function `f` over a given interval `a,b` with an optional `error` argument using the Golden Section Search. Default error `1e-4`
+Return the x value of the maximum of a function `f` over a given interval `a,b` with an optional `error` argument using the Golden Section Search. Default error `1e-4`
 
 `NumCalc.minimum(f,a,b,error)`
 
-Computes the minimum of a function `f` over a given interval `a,b` with an optional `error` argument using the Golden Section Search. Default error `1e-4`
+Return the x value of the minimum of a function `f` over a given interval `a,b` with an optional `error` argument using the Golden Section Search. Default error `1e-4`
 
 ```js
 function f(x){
