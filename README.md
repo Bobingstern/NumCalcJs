@@ -45,9 +45,9 @@ console.log(derivative(Math.PI)) // -0.99999...
 ```
 
 ### NIntegrate
-`NumCalc.NIntegrate(f: number, a: number, b: number, error: number = 1e-4): number`
+`NumCalc.NIntegrate(f: number, a: number, b: number): number`
 
-Computes the definite integral of `f` over a given interval `a, b` using Simpson's Rule and the 4th derivative of `f` to choose the number of partitions used using `error`. It can handle improper integrals too using bounds of `Infinity` or `-Infinity`. The default value of error is `1e-4`. Likely to fail if the bounds contain an asymptote.
+Computes the definite integral of `f` over a given interval `a, b` using Gaussian Quadrature and and a table of 64 Weights and Abscissae. It can handle improper integrals too using bounds of `Infinity` or `-Infinity`. Error is fixed but runs extremely fast only using 64 calls of `f` to get a very precise integral value. Likely to fail if the bounds contain an asymptote.
 
 ```js
 function f(x) {
