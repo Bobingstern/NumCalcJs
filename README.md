@@ -45,9 +45,9 @@ console.log(derivative(Math.PI)) // -0.99999...
 ```
 
 ### NIntegrate
-`NumCalc.NIntegrate(f: number, a: number, b: number): number`
+`NumCalc.NIntegrate(f: number, a: number, b: number, prec: boolean): number`
 
-Computes the definite integral of `f` over a given interval `a, b` using Gaussian Quadrature and and a table of 64 Weights and Abscissae. It can handle improper integrals too using bounds of `Infinity` or `-Infinity`. Error is fixed but runs extremely fast only using 64 calls of `f` to get a very precise integral value. Likely to fail if the bounds contain an asymptote.
+Computes the definite integral of `f` over a given interval `a, b` using Gaussian Quadrature and and a table of 64 Weights and Abscissae. It can handle improper integrals too using bounds of `Infinity` or `-Infinity`. Error is fixed but runs extremely fast only using 64 calls of `f` to get a very precise integral value. If `prec` is `true` then it will use 300 weights abscissae producing a near a perfect integral. Likely to fail if the bounds contain an asymptote.
 
 ```js
 function f(x) {
@@ -57,7 +57,7 @@ function f(x) {
 console.log(NumCalc.NIntegrate(f, 0, Infinity)); // 0.88622...
 console.log(NumCalc.NIntegrate(f, -Infinity, Infinity)); // 1.77245...
 console.log(NumCalc.NIntegrate(f, -Infinity, 0)); // 0.88622...
-console.log(NumCalc.NIntegrate(f, -2.2, 0.2)); // 1.081941...
+console.log(NumCalc.NIntegrate(f, -2.342, 25.3, true)); // 1.7716331838738018... Error only -2.6201263381153694e-14
 ```
 
 ## Notes

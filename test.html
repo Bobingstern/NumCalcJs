@@ -9,12 +9,19 @@
 
 <body>
 
-  <script src="NumCalcJS\NumCalc.js"></script>
+  <script src="NumCalcJS\NumCalc.min.js"></script>
   <script>
     function f(x){
-      return Math.tan(x)
+        return (1+Math.exp(x))/(Math.exp(x)+3*Math.sin(Math.PI*x)+1)
     }
-    console.log(NumCalc.NIntegrate(f, -6, 4))
+    function bench(){
+      let startTime = performance.now()
+      let integral = NumCalc.NIntegrate(f, 0, 23.5327, false)
+      let endTime = performance.now()
+
+      console.log(`Integral result: ${integral}`)
+      console.log(`Integrate took ${endTime - startTime} milliseconds`)
+    }
 
   </script>
 
